@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  color: #3a3a3a;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  width: 100%;
+  min-height: 8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 2% 0 2%;
+  background: white;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  -webkit-box-shadow: 0 2px 2px rgba(83, 83, 83, 0.2);
+          box-shadow: 0 2px 2px rgba(83, 83, 83, 0.2);
+}
+
+.navbar .inputWrap {
+  width: 70%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 20px;
+}
+
+.navbar .inputWrap .logo {
+  width: 36px;
+  height: 36px;
+  margin-right: 20px;
+}
+
+.navbar .inputWrap .search {
+  width: 50%;
+  height: 35px;
+  font-size: 14px;
+  color: #3a3a3a;
+  background: #e9e9e9;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  border-radius: 6px;
+}
+
+.navbar .inputWrap svg {
+  width: 30px;
+  cursor: pointer;
+}
+
+.navbar a {
+  color: #0fbcf9;
+  text-decoration: none;
+}
+
+.navbar .sign_in_or_out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: 20px;
+  color: #0fbcf9;
+}
+
+.navbar .sign_in_or_out a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #0fbcf9;
+}
+
+.navbar .sign_in_or_out a:hover {
+  color: #005dbb;
+}
+
+.profileTab {
+  width: 20%;
+  height: 92vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(#005dbb), to(#0875e0));
+  background: linear-gradient(#005dbb, #0875e0);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #d8d8d8;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.profileTab .detailsContainer {
+  width: 100%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+.profileTab .detailsContainer .imgWrap {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 2px;
+  background: white;
+}
+
+.profileTab .detailsContainer .imgWrap .dp {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profileTab .detailsContainer .name {
+  font-size: 18px;
+  color: white;
+}
+
+.profileTab .links {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.profileTab .links .link {
+  width: 100%;
+  min-height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profileTab .links .link .wrap {
+  width: 100%;
+  min-height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.profileTab .links .link .wrap svg {
+  width: 24px;
+  height: 24px;
+}
+
+.profileTab .links .link .wrap p {
+  text-align: left;
+  width: 60%;
+  color: white;
+}
+
+.profileTab .links .link:hover {
+  background: #005dbb;
+}
+
+.profileTab .socials {
+  width: 100%;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.profileTab .socials svg {
+  width: 24px;
+  cursor: pointer;
+}
+
+.profileTab .socials svg path {
+  fill: white;
+}
+
+.profileTab .socials svg:hover path {
+  fill: #b8b8b8;
+}
+/*# sourceMappingURL=navbar_profilesTab.css.map */

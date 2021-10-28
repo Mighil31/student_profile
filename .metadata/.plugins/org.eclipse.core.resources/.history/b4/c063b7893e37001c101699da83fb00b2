@@ -1,0 +1,5 @@
+package student_profile.java.dao;
+
+public class StudentDAO {
+
+}

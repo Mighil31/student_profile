@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+$primary-color: #0fbcf9;
+$black-color: #292929;
+$font-color:#3a3a3a;
+$shadow:0 5px 6px rgba(83, 83, 83, 0.2);
+$border-style: 1px solid #a7a7a756;
+$gradient-dark:#005dbb;
+$gradient-light:#0875e0;
+@mixin flexRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+@mixin Shadow {
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+@mixin flexColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    color: $font-color;
+    scroll-behavior: smooth;
+}
+body{
+    widows: 100%;
+    // height: 100vh;
+    @include flexRow();
+    position: relative;
+    padding: 10vh 0 10vh 0;
+    background: #f3f2ef;
+  
+    .feedsContainer{
+        width: 60%;
+        @include flexColumn();
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+       .feed{
+           width: 700px;
+           background: white;
+           @include flexColumn();
+           align-items: center;
+           justify-content: flex-start;
+           border-radius: 10px;
+           padding: 20px;
+           border: $border-style;
+           .userDetails{
+               width: 100%;
+               height: 100px;
+               @include flexRow();
+               justify-content: flex-start;
+               .dp{
+                   width: 70px;
+                   height: 70px;
+                   border-radius: 50%;
+                   object-fit: cover
+               }
+               .details{
+                   @include flexColumn();
+                   align-items: flex-start;
+                   padding-left: 10px;
+                   .name{
+                       font-size: 16px;
+                       font-weight: bolder;
+                   }
+                   .institution{
+                       font-size: 14px;
+                       color: #3a3a3a;
+                   }
+                   .feedTime{
+                       font-size: 12px;
+                       color: #818181;
+                   }
+               }
+           }
+           .feedDetails{
+               @include flexColumn();
+               justify-content: flex-start;
+               gap: 20px;
+               width: 100%;
+               .description{
+                   width: 100%;
+                   text-align: left;
+                   color: $font-color;
+               }
+               .mediaSource{
+                   width: 100%;
+                   img,video{
+                       width: 100%;
+                       height: 400px;
+                       object-fit: cover;
+                   }
+                   
+               }
+           }
+           .feedInteractions{
+               width: 100%;
+               @include flexRow();
+               justify-content: space-between;
+               gap: 20px;
+               height: 50px;
+               .icon{
+                //    width: 100px;
+                   @include flexRow();
+                   align-items: flex-end;
+                   justify-content: flex-start;
+                   gap: 10px;
+                   svg{
+                       cursor: pointer;
+                       &:hover{
+                           path{
+                               fill: $primary-color;
+                           }
+                       }
+                   }
+               }
+           }
+       }
+       .addFeedComponent{
+           border: none;
+           .addPostButton{
+               width: 200px;
+               height: 200px;
+               border: 1px dashed rgba(63, 63, 63, 0.432);
+               border-radius: 20px;
+               cursor: pointer;
+               background: white;
+               @include flexColumn();
+               text-decoration: none;
+               img{
+                   width: 100px;
+                   height: 100px;
+                   object-fit: contain;
+               }
+               &:hover{
+                background: rgba(231, 231, 231, 0.836);
+               }
+           }
+           
+       }
+    }
+}

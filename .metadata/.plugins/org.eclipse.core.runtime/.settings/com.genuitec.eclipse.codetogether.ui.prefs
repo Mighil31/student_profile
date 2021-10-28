@@ -1,0 +1,14 @@
+codetogether.auth.token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd3d3LmNvZGV0b2dldGhlci5jb20iLCJpYXQiOjE2MzU0MzAyMDksIm5iZiI6MTYzNTQzMDIwOSwiZXhwIjoxNjUwOTgyMjA5LCJkYXRhIjp7InVzZXIiOnsiaWQiOiIzMDA4OSJ9fX0.4youFHvUFHDs-pbeEOsYAiXm3hpsaLTtY_hkMrNk68U
+codetogether.first.time.usage.page.shown=true
+codetogether.hostname=mighil
+codetogether.main.view.displayed=true
+codetogether.username=mighildath@gmail.com
+com.genuitec.eclipse.codetogether.ui.showed.ports.upsell=true
+default.auth=prompt
+default.drive=all
+default.edit=all
+default.run=all
+default.team.only=false
+eclipse.preferences.version=1
+last.update.display.time=1635436095538
+uuid=GX43DJMzcHEg7jr7LifjV5

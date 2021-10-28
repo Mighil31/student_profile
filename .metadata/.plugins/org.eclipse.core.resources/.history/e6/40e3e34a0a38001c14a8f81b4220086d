@@ -1,0 +1,37 @@
+package student_profile.java.model;
+
+public class Feed {
+	
+	private int userID;
+	private int feedID;
+	private String feedTitle;
+	private String feedDescription;
+	private int likeCount;
+	private String mediaType;
+	private String mediaURL;
+	
+	public Feed(int userID, int feedID, String feedTitle, String feedDescription, int likeCount, String mediaType,
+			String mediaURL) {
+		super();
+		this.userID = userID;
+		this.feedID = feedID;
+		this.feedTitle = feedTitle;
+		this.feedDescription = feedDescription;
+		this.likeCount = likeCount;
+		this.mediaType = mediaType;
+		this.mediaURL = mediaURL;
+	}
+
+	public Feed(int userID, String feedTitle, String feedDescription, String mediaURL) {
+		super();
+		this.userID = userID;
+		this.feedTitle = feedTitle;
+		this.likeCount = 0;
+		this.feedDescription = feedDescription;
+		this.mediaURL = mediaURL;
+	}
+	
+	
+	
+	
+}
