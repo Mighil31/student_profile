@@ -36,7 +36,8 @@ public class StudentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String action = request.getServletPath();
-		
+//		System.out.println(request.getParameter("id"));
+		System.out.println(action);
 		switch (action) {
 			case "/signin":
 				try {
@@ -84,6 +85,20 @@ public class StudentServlet extends HttpServlet {
 			case "/home":
 				home(request, response);
 				break;
+			case "/edit":
+				showEditProfile(request,response);
+				break;
+			case "/editprofile":
+					try {
+						updateStudent(request,response);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				break;
 			default:
 				break;
 		}
@@ -103,7 +118,11 @@ public class StudentServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/home.jsp");
 		dispatcher.forward(request, response);
 	}
-
+	
+	private void showEditProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/edituserprofile.jsp");
+		dispatcher.forward(request, response);
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -151,7 +170,7 @@ public class StudentServlet extends HttpServlet {
 	
 	private void login(HttpServletRequest request, HttpServletResponse response) 
 			throws SQLException, IOException {
-		System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+//		System.out.println("|||||||||||||||||||||||||||||||||||||||||||||||||||||||");
 		System.out.println(request.getParameter("userName"));
 		System.out.println(request.getParameter("password"));
 //		int personID = Integer.parseInt(request.getParameter("personID"));
@@ -163,6 +182,30 @@ public class StudentServlet extends HttpServlet {
 		else
 			response.sendRedirect("signin");
 	}
+		
+	private void updateStudent(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException 
+	{	
+    	
+		System.out.println("updating new details.....");
+		
+		String userName = request.getParameter("userName");
+		String phoneNumber=request.getParameter("phoneNumber");
+		String email=request.getParameter("email");
+		int userID=Integer.parseInt(request.getParameter("userID"));
+		
+		String facebookURL=request.getParameter("facebookURL");
+		String linkedinURL=request.getParameter("linkedinURL");
+		String githubURL=request.getParameter("githubURL");
+		String twitterURL=request.getParameter("twitterURL");
+		Student newDetails = new Student(userID,email, userName, 
+		phoneNumber,githubURL,linkedinURL,facebookURL, twitterURL);
+		System.out.println("call DAO function");
+		studentDAO.editUser(newDetails);
+		System.out.println("called DAO function");
+		response.sendRedirect("/student_profile/feed");
+		
+	}
+	
 //	private void home(HttpServletRequest request, HttpServletResponse response)
 //			throws SQLException, IOException, ServletException {
 //

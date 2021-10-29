@@ -85,7 +85,7 @@
                     <p>Settings</p>
                 </div>
             </a>
-
+		
         </div>
         <div class="socials">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M30.9375 3.9375H5.0625C4.44023 3.9375 3.9375 4.44023 3.9375 5.0625V30.9375C3.9375 31.5598 4.44023 32.0625 5.0625 32.0625H30.9375C31.5598 32.0625 32.0625 31.5598 32.0625 30.9375V5.0625C32.0625 4.44023 31.5598 3.9375 30.9375 3.9375ZM27.6891 12.1465H25.4426C23.6813 12.1465 23.3402 12.9832 23.3402 14.2137V16.9242H27.5449L26.9965 21.1676H23.3402V32.0625H18.9563V21.1711H15.2895V16.9242H18.9563V13.7953C18.9563 10.1637 21.1746 8.18438 24.416 8.18438C25.9699 8.18438 27.3023 8.30039 27.6926 8.35313V12.1465H27.6891Z" fill="black"/> </svg>
@@ -95,7 +95,7 @@
 
         </div>
     </div> 
-    <div class="settingsContainer">
+    <form class="settingsContainer" method="get" action="editprofile">
          <div class="updateDP">
             <img class="dp" src="../media/avatars/zen.jpg" alt="">
             <label for="dpUpload">Upload profile picture</label>
@@ -103,47 +103,47 @@
          </div>
          <div class="rowWrap">
              <div class="wrap">
-                 <label for="">Name</label>
-                 <input type="text" name="" id="name" placeholder="Zendaya">
+                 <label for="">UserID</label>
+                 <input type="text" name="userID" id="id" placeholder="1">
              </div>
              <div class="wrap">
-                 <label for="">Full name</label>
-                 <input type="text" name="" id="fullName" placeholder="Zendaya Coleman">
+                 <label for="">UserName</label>
+                 <input type="text" name="userName" id="userName" placeholder="Zendaya">
              </div>
          </div>
          <div class="rowWrap">
             <div class="wrap">
                 <label for="">Email</label>
-                <input type="text" name="" id="name" placeholder="zendaya@gmail.com">
+                <input type="text" name="email" id="emailAddress" placeholder="zendaya@gmail.com">
             </div>
             <div class="wrap">
                 <label for="">Phone number</label>
-                <input type="text" name="" id="fullName" placeholder="3234002533">
+                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="3234002533">
             </div>
         </div>
         <div class="rowWrap">
             <div class="wrap">
                 <label for="">Facebook</label>
-                <input type="text" name="" id="name" placeholder="facebook.com/zendaya/">
+                <input type="text" name="facebookURL" id="facebookURL" placeholder="facebook.com/zendaya/">
             </div>
             <div class="wrap">
                 <label for="">Linkedin</label>
-                <input type="text" name="" id="fullName" placeholder="linkedin.com/in/zendaya">
+                <input type="text" name="linkedinURL" id="linkedinURL" placeholder="linkedin.com/in/zendaya">
             </div>
         </div>
         <div class="rowWrap">
             <div class="wrap">
                 <label for="">Github</label>
-                <input type="text" name="" id="name" placeholder="github.io/zendaya">
+                <input type="text" name="githubURL" id="githubURL" placeholder="github.io/zendaya">
             </div>
             <div class="wrap">
                 <label for="">Twitter</label>
-                <input type="text" name="" id="fullName" placeholder="twitter.com/zendaya">
+                <input type="text" name="twitterURL" id="twitterURL" placeholder="twitter.com/zendaya">
             </div>
         </div>
-        <button class="saveButton">
+        <button class="saveButton" type="submit">
             Save changes
         </button>
-    </div>
+    </form>
 </body>
 </html>

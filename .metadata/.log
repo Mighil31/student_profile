@@ -7625,3 +7625,221 @@ java.lang.ArrayIndexOutOfBoundsException: Index 278 out of bounds for length 278
 
 !ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-28 23:32:47.030
 !MESSAGE Connection closed with CodeTogether backend: Normal closure.
+!SESSION 2021-10-29 09:05:19.017 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2021-10-29 09:06:18.827
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-10-29 09:06:18.827
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@373fb666,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7894a250,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui.navigator 2 0 2021-10-29 09:06:33.054
+!MESSAGE Can't find Navigator Content Descriptor with id: org.eclipse.jst.servlet.ui.EnhancedJavaRendering
+
+!ENTRY org.eclipse.ui.navigator 2 0 2021-10-29 09:06:33.054
+!MESSAGE Can't find Navigator Content Descriptor with id: org.eclipse.jst.servlet.ui.EnhancedJavaRendering
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-10-29 09:06:33.097
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\mighil'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2021-10-29 09:08:09.200
+!MESSAGE Several ports (8005, 8080) required by Tomcat v9.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 09:25:45.508
+!MESSAGE Error occurred on communication channel with CodeTogether backend
+!STACK 0
+java.lang.IllegalArgumentException: No enum constant com.genuitec.eclipse.codetogether.apis.Services.av_events
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at com.genuitec.eclipse.codetogether.apis.Services.valueOf(Services.java:1)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection.onMessage(BackendConnection.java:568)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection$3$1.onMessage(BackendConnection.java:336)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection$3$1.onMessage(BackendConnection.java:1)
+	at org.glassfish.tyrus.core.TyrusSession.notifyMessageHandlers(TyrusSession.java:559)
+	at org.glassfish.tyrus.core.TyrusEndpointWrapper.onMessage(TyrusEndpointWrapper.java:855)
+	at org.glassfish.tyrus.core.TyrusWebSocket.onMessage(TyrusWebSocket.java:196)
+	at org.glassfish.tyrus.core.frame.TextFrame.respond(TextFrame.java:116)
+	at org.glassfish.tyrus.core.ProtocolHandler.process(ProtocolHandler.java:819)
+	at org.glassfish.tyrus.client.TyrusClientEngine$TyrusReadHandler.handle(TyrusClientEngine.java:725)
+	at org.glassfish.tyrus.container.grizzly.client.GrizzlyClientFilter$ProcessTask.execute(GrizzlyClientFilter.java:452)
+	at org.glassfish.tyrus.container.grizzly.client.TaskProcessor.processTask(TaskProcessor.java:91)
+	at org.glassfish.tyrus.container.grizzly.client.TaskProcessor.processTask(TaskProcessor.java:68)
+	at org.glassfish.tyrus.container.grizzly.client.GrizzlyClientFilter.handleRead(GrizzlyClientFilter.java:248)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:88)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:248)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:181)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:121)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:99)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:51)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:510)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:82)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:83)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$0(WorkerThreadIOStrategy.java:81)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:101)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 2 0 2021-10-29 09:26:34.706
+!MESSAGE A low-level error has occurred in CodeTogether
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at com.genuitec.eclipse.codetogether.utils.EncryptionUtil.decrypt(EncryptionUtil.java:143)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection.decrypt(BackendConnection.java:846)
+	at com.genuitec.eclipse.codetogether.ports.PortForwardingConnectionSetupService.allowFwdConnectionFrom(PortForwardingConnectionSetupService.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.genuitec.eclipse.codetogether.comms.JsonRPCService.handle(JsonRPCService.java:135)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection.lambda$5(BackendConnection.java:631)
+	at com.genuitec.eclipse.codetogether.comms.RpcWorkerPool$1.run(RpcWorkerPool.java:23)
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 10:25:46.767
+!MESSAGE Connection closed with CodeTogether backend: Normal closure.
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 10:25:46.773
+!MESSAGE The CodeTogether session closed unexpectedly, trying to reconnect.
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 10:25:52.071
+!MESSAGE Connection closed with CodeTogether backend: Normal closure.
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 10:30:17.069
+!MESSAGE Error occurred on communication channel with CodeTogether backend
+!STACK 0
+java.lang.IllegalArgumentException: No enum constant com.genuitec.eclipse.codetogether.apis.Services.av_events
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at com.genuitec.eclipse.codetogether.apis.Services.valueOf(Services.java:1)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection.onMessage(BackendConnection.java:568)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection$3$1.onMessage(BackendConnection.java:336)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection$3$1.onMessage(BackendConnection.java:1)
+	at org.glassfish.tyrus.core.TyrusSession.notifyMessageHandlers(TyrusSession.java:559)
+	at org.glassfish.tyrus.core.TyrusEndpointWrapper.onMessage(TyrusEndpointWrapper.java:855)
+	at org.glassfish.tyrus.core.TyrusWebSocket.onMessage(TyrusWebSocket.java:196)
+	at org.glassfish.tyrus.core.frame.TextFrame.respond(TextFrame.java:116)
+	at org.glassfish.tyrus.core.ProtocolHandler.process(ProtocolHandler.java:819)
+	at org.glassfish.tyrus.client.TyrusClientEngine$TyrusReadHandler.handle(TyrusClientEngine.java:725)
+	at org.glassfish.tyrus.container.grizzly.client.GrizzlyClientFilter$ProcessTask.execute(GrizzlyClientFilter.java:452)
+	at org.glassfish.tyrus.container.grizzly.client.TaskProcessor.processTask(TaskProcessor.java:91)
+	at org.glassfish.tyrus.container.grizzly.client.TaskProcessor.processTask(TaskProcessor.java:68)
+	at org.glassfish.tyrus.container.grizzly.client.GrizzlyClientFilter.handleRead(GrizzlyClientFilter.java:248)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:88)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:248)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:181)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:121)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:99)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:51)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:510)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:82)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:83)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$0(WorkerThreadIOStrategy.java:81)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:101)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 2 0 2021-10-29 10:34:05.917
+!MESSAGE A low-level error has occurred in CodeTogether
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at com.genuitec.eclipse.codetogether.utils.EncryptionUtil.decrypt(EncryptionUtil.java:143)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection.decrypt(BackendConnection.java:846)
+	at com.genuitec.eclipse.codetogether.ports.PortForwardingConnectionSetupService.allowFwdConnectionFrom(PortForwardingConnectionSetupService.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.genuitec.eclipse.codetogether.comms.JsonRPCService.handle(JsonRPCService.java:135)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection.lambda$5(BackendConnection.java:631)
+	at com.genuitec.eclipse.codetogether.comms.RpcWorkerPool$1.run(RpcWorkerPool.java:23)
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 11:30:18.331
+!MESSAGE Connection closed with CodeTogether backend: Normal closure.
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 11:30:18.332
+!MESSAGE The CodeTogether session closed unexpectedly, trying to reconnect.
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 11:30:23.618
+!MESSAGE Connection closed with CodeTogether backend: Normal closure.
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 11:31:08.117
+!MESSAGE Error occurred on communication channel with CodeTogether backend
+!STACK 0
+java.lang.IllegalArgumentException: No enum constant com.genuitec.eclipse.codetogether.apis.Services.av_events
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at com.genuitec.eclipse.codetogether.apis.Services.valueOf(Services.java:1)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection.onMessage(BackendConnection.java:568)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection$3$1.onMessage(BackendConnection.java:336)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection$3$1.onMessage(BackendConnection.java:1)
+	at org.glassfish.tyrus.core.TyrusSession.notifyMessageHandlers(TyrusSession.java:559)
+	at org.glassfish.tyrus.core.TyrusEndpointWrapper.onMessage(TyrusEndpointWrapper.java:855)
+	at org.glassfish.tyrus.core.TyrusWebSocket.onMessage(TyrusWebSocket.java:196)
+	at org.glassfish.tyrus.core.frame.TextFrame.respond(TextFrame.java:116)
+	at org.glassfish.tyrus.core.ProtocolHandler.process(ProtocolHandler.java:819)
+	at org.glassfish.tyrus.client.TyrusClientEngine$TyrusReadHandler.handle(TyrusClientEngine.java:725)
+	at org.glassfish.tyrus.container.grizzly.client.GrizzlyClientFilter$ProcessTask.execute(GrizzlyClientFilter.java:452)
+	at org.glassfish.tyrus.container.grizzly.client.TaskProcessor.processTask(TaskProcessor.java:91)
+	at org.glassfish.tyrus.container.grizzly.client.TaskProcessor.processTask(TaskProcessor.java:68)
+	at org.glassfish.tyrus.container.grizzly.client.GrizzlyClientFilter.handleRead(GrizzlyClientFilter.java:248)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:88)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:248)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:181)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:121)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:99)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:51)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:510)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:82)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:83)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$0(WorkerThreadIOStrategy.java:81)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:101)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 2 0 2021-10-29 11:31:53.367
+!MESSAGE A low-level error has occurred in CodeTogether
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at com.genuitec.eclipse.codetogether.utils.EncryptionUtil.decrypt(EncryptionUtil.java:143)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection.decrypt(BackendConnection.java:846)
+	at com.genuitec.eclipse.codetogether.ports.PortForwardingConnectionSetupService.allowFwdConnectionFrom(PortForwardingConnectionSetupService.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at com.genuitec.eclipse.codetogether.comms.JsonRPCService.handle(JsonRPCService.java:135)
+	at com.genuitec.eclipse.codetogether.comms.BackendConnection.lambda$5(BackendConnection.java:631)
+	at com.genuitec.eclipse.codetogether.comms.RpcWorkerPool$1.run(RpcWorkerPool.java:23)
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 12:31:09.326
+!MESSAGE Connection closed with CodeTogether backend: Normal closure.
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 12:31:09.328
+!MESSAGE The CodeTogether session closed unexpectedly, trying to reconnect.
+
+!ENTRY com.genuitec.eclipse.codetogether.ui 1 0 2021-10-29 12:31:14.616
+!MESSAGE Connection closed with CodeTogether backend: Normal closure.

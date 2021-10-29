@@ -19,6 +19,8 @@ public class StudentDAO {
 	private static final String INSERT_USERS_SQL = "INSERT INTO student" + "  (userName, password, email, location) VALUES "
 			+ " (?, ?, ?, ?);";
 	private static final String VERIFY_USER_CREDENTIALS = "select * from student where userName =? and password=?;";
+	private static final String UPDATE_USERS_SQL ="UPDATE student SET userName = ?, email= ?, phoneNumber= ?, facebookURL=?, "
+			+ "	githubURL=?, linkedinURL=?, twitterURL=? WHERE userID = ?;";
 	
 //	private static final String SELECT_ALL_USERS = "select * from persons";
 //	private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
@@ -83,6 +85,29 @@ public class StudentDAO {
 		}
 		return false;
 	}
+	
+	public void editUser(Student student) throws SQLException{
+		try (Connection connection = getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USERS_SQL)) {
+				
+//			preparedStatement.setInt(1, student.getPersonID());
+			preparedStatement.setString(1, student.getUserName());
+			preparedStatement.setString(2, student.getEmail());
+			preparedStatement.setString(3, student.getPhoneNumber());
+			preparedStatement.setString(4, student.getFacebookURL());
+			preparedStatement.setString(5, student.getGithubURL());
+			preparedStatement.setString(6, student.getLinkedinURL());
+			preparedStatement.setString(7, student.getTwitterURL());
+			preparedStatement.setInt(8, student.getUserID());
+			//pass studentID to update
+			
+			System.out.println(preparedStatement);	
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+	}
+	
 	
 //	public List<Student> selectAllUsers() {
 //

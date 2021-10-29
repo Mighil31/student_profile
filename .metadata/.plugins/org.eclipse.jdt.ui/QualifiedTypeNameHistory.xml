@@ -9,5 +9,7 @@
     <fullyQualifiedTypeName name="student_profile.java.model.Student"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="student_profile.java.dao.FeedsDAO"/>
+    <fullyQualifiedTypeName name="student_profile.java.model.Feed"/>
     <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
