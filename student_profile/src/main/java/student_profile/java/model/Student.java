@@ -14,6 +14,7 @@ public class Student {
 	private String facebookURL;
 	private String twitterURL;
 	private String location;
+	private String headline;
 	
 	public Student(int userID, String userName, String password, String address, String aboutUser, String phoneNumber,
 			String email, String githubURL, String linkedinURL, String facebookURL, String twitterURL,
@@ -33,6 +34,22 @@ public class Student {
 		this.location = location;
 	}
 
+	public Student(int userID, String userName, String aboutUser, String phoneNumber, String email, String githubURL,
+			String linkedinURL, String facebookURL, String twitterURL, String location, String headline) {
+		super();
+		this.userID = userID;
+		this.userName = userName;
+		this.aboutUser = aboutUser;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.githubURL = githubURL;
+		this.linkedinURL = linkedinURL;
+		this.facebookURL = facebookURL;
+		this.twitterURL = twitterURL;
+		this.location = location;
+		this.headline = headline;
+	}
+
 	public Student(int userID,String email,  String userName, String phoneNumber,
 			String githubURL, String linkedinURL, String facebookURL, String twitterURL) {
 		super();
@@ -47,19 +64,24 @@ public class Student {
 	}
 	
 	
-	
+	public Student() {
+		super();
+	}
+
 	public Student(String userName, String password, String email, String location) {
 		super();
 		this.userName = userName;
 		this.password = password;
 		this.email = email;
 		this.location = location;
+		this.userID = -1;
 	}
 
 	public Student(String userName, String password) {
 		super();
 		this.userName = userName;
 		this.password = password;
+		this.userID = -1;
 	}
 
 	public int getUserID() {
@@ -101,6 +123,15 @@ public class Student {
 	public String getEmail() {
 		return email;
 	}
+	
+	public String getHeadline() {
+		return headline;
+	}
+
+	public void setHeadline(String headline) {
+		this.headline = headline;
+	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}

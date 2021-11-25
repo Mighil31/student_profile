@@ -60,7 +60,9 @@ public class FeedsDAO {
 				String name = rs.getString("userName");
 				String feedDescription = rs.getString("feedDescription");
 				String mediaURL = rs.getString("mediaURL");
-				feed_items.add(new Feed(id, name, feedDescription, mediaURL));
+				String headline = rs.getString("headline");
+				String feedTime = rs.getString("feedTime");
+				feed_items.add(new Feed(id, name, feedDescription, mediaURL, feedTime, headline));
 			}
 		} catch (SQLException e) {
 			printSQLException(e);

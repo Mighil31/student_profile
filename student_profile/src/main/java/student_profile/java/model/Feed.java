@@ -14,7 +14,7 @@ public class Feed {
 	private String mediaType;
 	private String mediaURL;
 	private String userName;
-	
+	private String headline;
 	
 	public Feed(int userID, int feedID, String feedTitle, String feedDescription, int likeCount, String mediaType,
 			String mediaURL) {
@@ -30,6 +30,8 @@ public class Feed {
 	    LocalDateTime now = LocalDateTime.now(); 
 		this.feedTime = dtf.format(now);
 	}
+	
+	
 
 	public Feed(int userID, String userName, String feedDescription, String mediaURL) {
 		super();
@@ -52,6 +54,16 @@ public class Feed {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 	    LocalDateTime now = LocalDateTime.now(); 
 		this.feedTime = dtf.format(now);
+	}
+	public Feed(int userID, String userName, String feedDescription, String mediaURL,String feedTime,  String headline) {
+		super();
+		this.userID = userID;
+		this.likeCount = 0;
+		this.userName = userName;
+		this.feedDescription = feedDescription;
+		this.mediaURL = mediaURL;
+		this.headline = headline;
+		this.feedTime = feedTime;
 	}
 		
 	public String getFeedTime() {
@@ -117,6 +129,16 @@ public class Feed {
 	public void setMediaType(String mediaType) {
 		this.mediaType = mediaType;
 	}
+	
+	public String getHeadline() {
+		return headline;
+	}
+
+	public void setHeadline(String headline) {
+		this.headline = headline;
+	}
+
+
 
 	public String getMediaURL() {
 		return mediaURL;

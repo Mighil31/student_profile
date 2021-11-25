@@ -25,9 +25,8 @@
         </div>
         <a href="./About.html" class="aboutlink">About us</a>
         <div class="sign_in_or_out">
-            <a href="login.html" class="signIn">Sign in</a>
             |
-            <a href="" class="signOut">Sign out</a>
+            <a href="${pageContext.request.contextPath}/signout" class="signOut">Sign out</a> 
         </div>
     </div>
     <div class="profileTab">
@@ -95,7 +94,7 @@
 
         </div>
     </div> 
-    <form class="settingsContainer" method="get" action="editprofile">
+    <form class="settingsContainer" method="post" action="edit">
          <div class="updateDP">
             <img class="dp" src="../media/avatars/zen.jpg" alt="">
             <label for="dpUpload">Upload profile picture</label>
@@ -103,43 +102,54 @@
          </div>
          <div class="rowWrap">
              <div class="wrap">
-                 <label for="">UserID</label>
-                 <input type="text" name="userID" id="id" placeholder="1">
+                 <label for="">UserName</label>
+                 <input type="text" name="userName" id="userName" value="${student.getUserName()}">
              </div>
              <div class="wrap">
-                 <label for="">UserName</label>
-                 <input type="text" name="userName" id="userName" placeholder="Zendaya">
-             </div>
+                <label for="">Email</label>
+                <input type="text" name="email" id="emailAddress" value="${student.getEmail()}">
+            </div>
          </div>
          <div class="rowWrap">
             <div class="wrap">
-                <label for="">Email</label>
-                <input type="text" name="email" id="emailAddress" placeholder="zendaya@gmail.com">
+                <label for="">Phone number</label>
+                <input type="text" name="phoneNumber" id="phoneNumber" value="${student.getPhoneNumber()}">   
             </div>
             <div class="wrap">
-                <label for="">Phone number</label>
-                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="3234002533">
+                <label for="">About Me</label>
+                <input type="text" name="aboutUser" id="aboutUser" value="${student.getAboutUser()}">
             </div>
         </div>
         <div class="rowWrap">
             <div class="wrap">
                 <label for="">Facebook</label>
-                <input type="text" name="facebookURL" id="facebookURL" placeholder="facebook.com/zendaya/">
+                <input type="text" name="facebookURL" id="facebookURL" value="${student.getFacebookURL()}">
             </div>
             <div class="wrap">
                 <label for="">Linkedin</label>
-                <input type="text" name="linkedinURL" id="linkedinURL" placeholder="linkedin.com/in/zendaya">
+                <input type="text" name="linkedinURL" id="linkedinURL" value="${student.getLinkedinURL()}">
             </div>
         </div>
         <div class="rowWrap">
             <div class="wrap">
                 <label for="">Github</label>
-                <input type="text" name="githubURL" id="githubURL" placeholder="github.io/zendaya">
+                <input type="text" name="githubURL" id="githubURL" value="${student.getGithubURL()}">
             </div>
             <div class="wrap">
                 <label for="">Twitter</label>
-                <input type="text" name="twitterURL" id="twitterURL" placeholder="twitter.com/zendaya">
+                <input type="text" name="twitterURL" id="twitterURL" value="${student.getTwitterURL()}">
             </div>
+        </div>
+        <div class="rowWrap">
+            <div class="wrap">
+                <label for="">Location</label>
+                <input type="text" name="location" id="location" value="${student.getLocation()}">
+            </div>
+            <div class="wrap">
+                <label for="">Headline</label>
+                <input type="text" name="headline" id="headline" value="${student.getHeadline()}">
+            </div>
+            
         </div>
         <button class="saveButton" type="submit">
             Save changes

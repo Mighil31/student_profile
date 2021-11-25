@@ -29,9 +29,8 @@
         </div>
         <a href="./About.html" class="aboutlink">About us</a>
         <div class="sign_in_or_out">
-            <a href="login.html" class="signIn">Sign in</a>
             |
-            <a href="" class="signOut">Sign out</a>
+            <a href="${pageContext.request.contextPath}/signout" class="signOut">Sign out</a>
         </div>
     </div>
     <div class="profileTab">
@@ -113,7 +112,7 @@
             </label>
             <input type="file" id="videoInput" style="visibility: hidden;width: 0px;" accept=".mp4,.mov,.mpeg">
         </div>
-        <input name="userID" type="text" class="tempImageURLLoader" placeholder="enter user id"/>
+        <!-- <input name="userID" type="text" class="tempImageURLLoader" placeholder="enter user id"/> -->
         <input name="mediaURL" type="text" class="tempImageURLLoader" placeholder="enter image url"/>
         <div class="mediaPreview">
             <h3>Preview</h3>

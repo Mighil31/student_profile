@@ -11,6 +11,16 @@
     <style><%@include file="../styles/feeds.css"%></style>
 </head>
 <body>
+
+	<!-- %
+		if(session == null || session.getAttribute("userID") == null)
+		{
+			response.sendRedirect("/student_profile/signin");
+		}
+	
+	%> -->
+
+
     <div class="navbar">
         <div class="inputWrap">
             <a href="dashboard.html">
@@ -27,9 +37,11 @@
         </div>
         <a href="./About.html" class="aboutlink">About us</a>
         <div class="sign_in_or_out">
-            <a href="login.html" class="signIn">Sign in</a>
-            |
-            <a href="" class="signOut">Sign out</a>
+            <!--  <a href="login.html" class="signIn">Sign in</a> -->
+            <!-- <form action="${pageContext.request.contextPath}/signout" method="post">
+			    <input type="submit" name="button1" value="Signout" />
+			</form> -->
+              <a href="${pageContext.request.contextPath}/signout" class="signOut">Sign out</a> 
         </div>
     </div>
     <div class="profileTab">
@@ -118,7 +130,7 @@
                        <c:out value="${feed.userName}" />
                     </p>
                     <p class="institution">
-                        Btech student @ Cambridge University , United states
+                        ${feed.headline}
                     </p>
                     <div class="feedTime">
                         <c:out value="${feed.feedTime}" />

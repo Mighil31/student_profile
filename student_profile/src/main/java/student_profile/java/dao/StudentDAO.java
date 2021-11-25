@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
+
 import student_profile.java.model.Student;
 
 public class StudentDAO {
@@ -19,8 +21,10 @@ public class StudentDAO {
 	private static final String INSERT_USERS_SQL = "INSERT INTO student" + "  (userName, password, email, location) VALUES "
 			+ " (?, ?, ?, ?);";
 	private static final String VERIFY_USER_CREDENTIALS = "select * from student where userName =? and password=?;";
-	private static final String UPDATE_USERS_SQL ="UPDATE student SET userName = ?, email= ?, phoneNumber= ?, facebookURL=?, "
-			+ "	githubURL=?, linkedinURL=?, twitterURL=? WHERE userID = ?;";
+	private static final String UPDATE_USERS_SQL ="UPDATE student SET userName = ?, aboutUser=?, phoneNumber= ?, email=?, facebookURL=?, "
+			+ "	githubURL=?, linkedinURL=?, twitterURL=?, location=?, headline=? WHERE userID = ?;";
+	
+	private static final String GET_STUDENT = "SELECT * FROM student WHERE userID=?;";
 	
 //	private static final String SELECT_ALL_USERS = "select * from persons";
 //	private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
@@ -41,49 +45,74 @@ public class StudentDAO {
 		return connection;
 	}
 	
-	public void signUpUser(Student student) throws SQLException {
+	public Student signUpUser(Student student) throws SQLException {
 		System.out.println(INSERT_USERS_SQL);
 		// try-with-resource statement will auto close the connection.
 		try (Connection connection = getConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
+			PreparedStatement preparedStatement1 = connection.prepareStatement(INSERT_USERS_SQL);
+			PreparedStatement preparedStatement2 = connection.prepareStatement(VERIFY_USER_CREDENTIALS);) {
 //			preparedStatement.setInt(1, student.getPersonID());
-			preparedStatement.setString(1, student.getUserName());
-			preparedStatement.setString(2, student.getPassword());
-			preparedStatement.setString(3, student.getEmail());
-			preparedStatement.setString(4, student.getLocation());
+			preparedStatement1.setString(1, student.getUserName());
+			preparedStatement1.setString(2, student.getPassword());
+			preparedStatement1.setString(3, student.getEmail());
+			preparedStatement1.setString(4, student.getLocation());
 //			preparedStatement.setString(3, student.getCountry());
-			System.out.println(preparedStatement);
-			preparedStatement.executeUpdate();
+			System.out.println("statement 1 " + preparedStatement1);
+			preparedStatement1.executeUpdate();
+			
+			preparedStatement2.setString(1, student.getUserName());
+			preparedStatement2.setString(2, student.getPassword());
+
+//			preparedStatement.setString(3, student.getCountry());
+			
+			System.out.println(preparedStatement2);
+			
+			ResultSet rs = preparedStatement2.executeQuery();
+			if(rs.next())
+			{
+				
+				student.setUserID(rs.getInt("userID"));
+			//	System.out.println("ada poda" + rs.getInt("userID"));
+				return student;
+			}
 		} catch (SQLException e) {
 			printSQLException(e);
 		}
+		return student;
 	}
 	
-	public boolean signInUser(Student student) throws SQLException {
+	public Student signInUser(Student student) throws SQLException {
 //		System.out.println(INSERT_USERS_SQL);
 		
 		// try-with-resource statement will auto close the connection.
-		ResultSet rs = null;
+//		ResultSet rs = null;
 		try (Connection connection = getConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(VERIFY_USER_CREDENTIALS)) {
 //			preparedStatement.setInt(1, student.getPersonID());
+			System.out.println("asdasd" + student.getUserName());
 			preparedStatement.setString(1, student.getUserName());
 			preparedStatement.setString(2, student.getPassword());
+
 //			preparedStatement.setString(3, student.getCountry());
 			
 			System.out.println(preparedStatement);
-			rs = preparedStatement.executeQuery();
-			if(rs.next() == false)
+			ResultSet rs = preparedStatement.executeQuery();
+
+			if(rs.next())
 			{
-				return false;
+				
+				student.setUserID(rs.getInt("userID"));
+//				System.out.println("ada poda" + rs.getInt("userID"));
+				return student;
 			}
 			else
-				return true;
+				return student;
+
 //			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			printSQLException(e);
 		}
-		return false;
+		return student;
 	}
 	
 	public void editUser(Student student) throws SQLException{
@@ -92,13 +121,16 @@ public class StudentDAO {
 				
 //			preparedStatement.setInt(1, student.getPersonID());
 			preparedStatement.setString(1, student.getUserName());
-			preparedStatement.setString(2, student.getEmail());
+			preparedStatement.setString(2, student.getAboutUser());
 			preparedStatement.setString(3, student.getPhoneNumber());
-			preparedStatement.setString(4, student.getFacebookURL());
-			preparedStatement.setString(5, student.getGithubURL());
-			preparedStatement.setString(6, student.getLinkedinURL());
-			preparedStatement.setString(7, student.getTwitterURL());
-			preparedStatement.setInt(8, student.getUserID());
+			preparedStatement.setString(4, student.getEmail());
+			preparedStatement.setString(5, student.getFacebookURL());
+			preparedStatement.setString(6, student.getGithubURL());
+			preparedStatement.setString(7, student.getLinkedinURL());
+			preparedStatement.setString(8, student.getTwitterURL());
+			preparedStatement.setString(9, student.getLocation());
+			preparedStatement.setString(10, student.getHeadline());
+			preparedStatement.setInt(11, student.getUserID());
 			//pass studentID to update
 			
 			System.out.println(preparedStatement);	
@@ -135,6 +167,46 @@ public class StudentDAO {
 //		}
 //		return users;
 //	}
+	
+	public Student getStudent(int userID)
+	{
+		Student student = new Student();
+		try (Connection connection = getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(GET_STUDENT)) {
+//			preparedStatement.setInt(1, student.getPersonID());
+			preparedStatement.setString(1, String.valueOf(userID));
+
+//			preparedStatement.setString(3, student.getCountry());
+			
+			System.out.println(preparedStatement);
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			if(rs.next())
+			{
+				student.setUserID(rs.getInt("userID"));
+				student.setUserName(rs.getString("userName"));
+				student.setAboutUser(rs.getString("aboutUser"));
+				student.setPhoneNumber(rs.getString("phoneNumber"));
+				student.setEmail(rs.getString("email"));
+				student.setGithubURL(rs.getString("githubURL"));
+				student.setLinkedinURL(rs.getString("linkedinURL"));
+				student.setFacebookURL(rs.getString("facebookURL"));
+				student.setTwitterURL(rs.getString("twitterURL"));
+				student.setLocation(rs.getString("location"));
+				
+//				System.out.println("ada poda" + rs.getInt("userID"));
+				return student;
+			}
+			else
+				return student;
+
+//			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			printSQLException(e);
+			return student;
+		}
+		
+	}
 
 	
 	private void printSQLException(SQLException ex) {

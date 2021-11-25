@@ -23,7 +23,7 @@
         <div class="title">
             Signup
         </div>
-        <form action="register" method="get" class="inputFields">
+        <form action="signup" method="post" class="inputFields">
             <div class="input-field">
                 <input type="text" name="userName" id="uname" required />
                 <label for="uname">Username</label>
