@@ -230,4 +230,8 @@
   left: 0;
   color: #0fbcf9;
 }
+
+.errorMessage{
+  color:red;
+}
 /*# sourceMappingURL=Login.css.map */

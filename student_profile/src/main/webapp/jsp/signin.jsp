@@ -18,7 +18,11 @@
 		}
 
 	%> -->
+	
+	
+	
 
+	
     <div  class="LoginPage">
     <header>
         <div class="Logo">
@@ -34,6 +38,7 @@
                 
             </p>
         </div>
+        <p class="errorMessage">${errMessage}</p>
         <form action="signin" method="post" class="LoginForm">
             <div class="input-field">
               <input type="text" name ="userName" id="uname" value="<c:out value='${student.userName}' />" required />

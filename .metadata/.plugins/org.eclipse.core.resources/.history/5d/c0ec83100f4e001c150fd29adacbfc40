@@ -1,0 +1,11 @@
+package student_profile.java.model;
+
+public class Skills {
+	public int userID;
+	public String skillTitle;
+	public Skills(int userID, String skillTitle) {
+		super();
+		this.userID = userID;
+		this.skillTitle = skillTitle;
+	}
+}

@@ -57,6 +57,47 @@ body .mainContainer .userInformation {
   gap: 20px;
   padding-top: 10vh;
 }
+body .mainContainer .userInformation .detailsContainer {
+  width: 100%;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+body .mainContainer .userInformation .detailsContainer .imgWrap {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 2px;
+  background: white;
+}
+
+body .mainContainer .userInformation .detailsContainer .imgWrap .dp {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+body .mainContainer .userInformation .detailsContainer .name {
+  font-size: 18px;
+  color: #292929;
+}
 
 body .mainContainer .userInformation .detailsWrap {
   width: 70%;

@@ -23,6 +23,7 @@
         <div class="title">
             Signup
         </div>
+        <p class="errorMessage">${errMessage}</p>
         <form action="signup" method="post" class="inputFields">
             <div class="input-field">
                 <input type="text" name="userName" id="uname" required />
@@ -47,6 +48,7 @@
             <button type="submit">
                 Register
             </button>
+            
         </form>
     </div>
   

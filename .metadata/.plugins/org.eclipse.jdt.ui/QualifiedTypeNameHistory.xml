@@ -7,11 +7,9 @@
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="student_profile.java.model.Student"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="student_profile.java.dao.FeedsDAO"/>
     <fullyQualifiedTypeName name="student_profile.java.model.Feed"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.google.gson.JsonObject"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="com.google.gson.Gson"/>
@@ -21,4 +19,9 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.mysql.cj.jdbc.result.ResultSetMetaData"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.util.StringUtils"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="student_profile.java.model.Certification"/>
+    <fullyQualifiedTypeName name="student_profile.java.model.StudentDetails"/>
 </qualifiedTypeNameHistroy>

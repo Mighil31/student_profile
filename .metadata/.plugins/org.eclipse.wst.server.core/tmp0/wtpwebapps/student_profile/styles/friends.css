@@ -163,11 +163,12 @@ body .searchResults .List .listItem .Btn:hover {
   background: #005dbb;
 }
 
-body .searchResults .List .listItem .removeButton {
+body .searchResults .List .listItem form .removeButton {
   background: #ff5e5e;
+  border:none;
 }
 
-body .searchResults .List .listItem .removeButton:hover {
+body .searchResults .List .listItem form .removeButton:hover {
   background: #ca3939;
 }
 

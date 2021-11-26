@@ -62,7 +62,8 @@ public class FeedsDAO {
 				String mediaURL = rs.getString("mediaURL");
 				String headline = rs.getString("headline");
 				String feedTime = rs.getString("feedTime");
-				feed_items.add(new Feed(id, name, feedDescription, mediaURL, feedTime, headline));
+				String dp = "https://randomuser.me/api/portraits/men/"+id+".jpg";
+				feed_items.add(new Feed(id, name, feedDescription, mediaURL, feedTime, headline, dp));
 			}
 		} catch (SQLException e) {
 			printSQLException(e);

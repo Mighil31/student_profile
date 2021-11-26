@@ -10,7 +10,12 @@ import java.util.List;
 
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
 
+import student_profile.java.model.Certification;
+import student_profile.java.model.Feed;
 import student_profile.java.model.Student;
+import student_profile.java.model.StudentDetails;
+import student_profile.java.model.Skills;
+import student_profile.java.model.Education;
 
 public class StudentDAO {
 	
@@ -25,6 +30,18 @@ public class StudentDAO {
 			+ "	githubURL=?, linkedinURL=?, twitterURL=?, location=?, headline=? WHERE userID = ?;";
 	
 	private static final String GET_STUDENT = "SELECT * FROM student WHERE userID=?;";
+	
+	private static final String GET_STUDENT_SKILLS = "SELECT * FROM skills WHERE userID=?;";
+	
+	private static final String GET_STUDENT_CERTIFICATIONS = "SELECT * FROM certifications WHERE userID=?;";
+	
+	private static final String GET_STUDENT_EDUCATION = "SELECT * FROM education WHERE userID=?;";
+	
+	private static final String GET_FRIENDS = "SELECT * FROM student S LEFT JOIN friends F ON S.userID = F.friendID WHERE F.userID = ? "
+			+ "UNION SELECT * FROM student S LEFT JOIN friends F ON S.userID = F.userID WHERE F.friendID = ?;";
+	
+	private static final String DELETE_FRIEND = "delete from friends where (userID = ? and friendID = ?) or (userID = ? and friendID = ?);";
+	
 	
 //	private static final String SELECT_ALL_USERS = "select * from persons";
 //	private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
@@ -193,6 +210,7 @@ public class StudentDAO {
 				student.setFacebookURL(rs.getString("facebookURL"));
 				student.setTwitterURL(rs.getString("twitterURL"));
 				student.setLocation(rs.getString("location"));
+				student.setHeadline(rs.getString("headline"));
 				
 //				System.out.println("ada poda" + rs.getInt("userID"));
 				return student;
@@ -206,6 +224,108 @@ public class StudentDAO {
 			return student;
 		}
 		
+	}
+	
+	public void deleteFriend(int userID, int friendID)
+	{
+		try (Connection connection = getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(DELETE_FRIEND)) {
+					
+//				preparedStatement.setInt(1, student.getPersonID());
+				preparedStatement.setString(1, String.valueOf(userID));
+				preparedStatement.setString(2, String.valueOf(friendID));
+				preparedStatement.setString(3, String.valueOf(friendID));
+				preparedStatement.setString(4, String.valueOf(userID));
+	
+				//pass studentID to update
+				
+				System.out.println(preparedStatement);	
+				preparedStatement.executeUpdate();
+			} catch (SQLException e) {
+				printSQLException(e);
+			}
+	}
+	
+	public List<Student> getFriends(int id)
+	{
+		List<Student> friends = new ArrayList<>();
+		
+		try (Connection connection = getConnection();
+
+				// Step 2:Create a statement using connection object
+			PreparedStatement preparedStatement = connection.prepareStatement(GET_FRIENDS);) {
+			preparedStatement.setString(1, String.valueOf(id));
+			preparedStatement.setString(2, String.valueOf(id));
+			System.out.println(preparedStatement);
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 4: Process the ResultSet object.
+			while (rs.next()) {
+				int userID = rs.getInt("userID");
+				String name = rs.getString("userName");
+				String headline = rs.getString("headline");
+				String dp = "https://randomuser.me/api/portraits/men/"+userID+".jpg";
+				String location = rs.getString("location");
+				friends.add(new Student(userID, name, headline, dp, location));
+			}
+		} catch (SQLException e) {
+			printSQLException(e);
+		}
+		
+		return friends;
+	}
+	
+	public StudentDetails getStudentDetails(int id)
+	{
+		Student student = getStudent(id);
+		StudentDetails studentDetails = new StudentDetails(student);
+		
+		try (Connection connection = getConnection();
+				PreparedStatement skills = connection.prepareStatement(GET_STUDENT_SKILLS);
+				PreparedStatement certifications = connection.prepareStatement(GET_STUDENT_CERTIFICATIONS);
+				PreparedStatement educations = connection.prepareStatement(GET_STUDENT_EDUCATION);) {
+//				preparedStatement.setInt(1, student.getPersonID());
+				skills.setString(1, String.valueOf(id));
+				certifications.setString(1, String.valueOf(id));
+				educations.setString(1, String.valueOf(id));
+				System.out.println(skills);
+				System.out.println(certifications);
+				System.out.println(educations);
+				ResultSet rs = skills.executeQuery();
+				
+				while (rs.next()) {
+					String skillTitle = rs.getString("skillTitle");
+					studentDetails.skills.add(new Skills(id, skillTitle));
+				}
+				
+				rs = certifications.executeQuery();
+				
+				while (rs.next()) {
+					String title = rs.getString("title");
+					String description = rs.getString("description");
+					String period = rs.getString("period");
+					String imageURL = rs.getString("imageURL");
+					studentDetails.certifications.add(new Certification(id,title, description, period, imageURL));
+				}
+				
+				rs = educations.executeQuery();
+	
+				while (rs.next()) {
+					String institution = rs.getString("institution");
+					String qualification = rs.getString("qualification");
+					String period = rs.getString("period");
+					String imageURL = rs.getString("imageURL");
+					studentDetails.educations.add(new Education(id,institution, qualification, period, imageURL));
+				}
+//				preparedStatement.setString(3, student.getCountry());
+				
+				return studentDetails;
+			} catch (SQLException e) {
+				printSQLException(e);
+			}
+		
+		return studentDetails;
 	}
 
 	

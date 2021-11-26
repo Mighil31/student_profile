@@ -1,0 +1,21 @@
+package student_profile.java.model;
+
+public class Certification {
+	public int userID;
+	public String title;
+	public String description;
+	public String period;
+	public String imageURL;
+	
+	public Certification(int userID, String title, String description, String period, String imageURL) {
+		super();
+		this.userID = userID;
+		this.title = title;
+		this.description = description;
+		this.period = period;
+		this.imageURL = imageURL;
+	}
+	
+	
+	
+}

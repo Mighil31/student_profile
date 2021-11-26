@@ -134,6 +134,9 @@ public class feedsServlet extends HttpServlet {
 		{
 	        int userID=(Integer)session.getAttribute("userID");
 	        System.out.println("newFeed " + userID);
+	        request.setAttribute("userID",userID);
+	        request.setAttribute("dp",session.getAttribute("dp"));
+	        request.setAttribute("userName",session.getAttribute("userName"));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/addFeed.jsp");
 			dispatcher.forward(request, response);
 		}
@@ -149,6 +152,12 @@ public class feedsServlet extends HttpServlet {
 		{
 			List<Feed> feedList = feedsDAO.getFeedItems();
 			request.setAttribute("feedList", feedList);
+			request.setAttribute("userID", session.getAttribute("userID"));
+			request.setAttribute("userName",session.getAttribute("userName"));
+			System.out.println(feedList.get(0).getDp());
+			request.setAttribute("dp",session.getAttribute("dp"));
+//			request.setAttribute("link1","https://randomuser.me/api/portraits/men/");
+//			request.setAttribute("link2",".jpg");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/feeds.jsp");
 			dispatcher.forward(request, response);
 		}

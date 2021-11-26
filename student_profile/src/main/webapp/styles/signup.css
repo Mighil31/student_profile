@@ -199,4 +199,7 @@ body lottie-player {
      object-fit: contain;
   padding-top: 30px;
 }
+.errorMessage{
+  color:red;
+}
 /*# sourceMappingURL=signup.css.map */

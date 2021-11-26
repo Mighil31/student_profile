@@ -15,6 +15,7 @@ public class Student {
 	private String twitterURL;
 	private String location;
 	private String headline;
+	private String dp;
 	
 	public Student(int userID, String userName, String password, String address, String aboutUser, String phoneNumber,
 			String email, String githubURL, String linkedinURL, String facebookURL, String twitterURL,
@@ -82,6 +83,26 @@ public class Student {
 		this.userName = userName;
 		this.password = password;
 		this.userID = -1;
+	}
+	
+	
+
+	public Student(int userID, String userName, String headline, String dp, String location) {
+		super();
+		this.userID = userID;
+		this.userName = userName;
+		this.headline = headline;
+		this.dp = dp;
+		this.location = location;
+	}
+	
+	
+	public String getDp() {
+		return dp;
+	}
+
+	public void setDp(String dp) {
+		this.dp = dp;
 	}
 
 	public int getUserID() {
